@@ -3,11 +3,14 @@ package bank.core;
 import bank.exceptions.InsufficientBalanceException;
 
 public class CurrentAccount extends Account{
-    double overdraft;
+    protected final double overdraft = 50_000;
 
-    CurrentAccount(String customerName, double balance, double overdraft){
+    public CurrentAccount(String customerName){
+        super(customerName, "Current Account", 0);
+    }
+
+    public CurrentAccount(String customerName, double balance){
         super(customerName, "Current Account", balance);
-        this.overdraft = overdraft;
     }
 
     @Override
@@ -21,6 +24,6 @@ public class CurrentAccount extends Account{
         }
 
         balance -= amount;
-        addLog("Withdrew", amount, balance);
+        addLog("Withdraw", amount, balance);
     }
 }

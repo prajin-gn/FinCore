@@ -29,6 +29,6 @@ public class SavingsAccount extends Account{
         }
 
         balance -= amount;
-        addLog("Withdrew", amount, balance);
+        addLog("Withdraw", amount, balance);
     }
 }
